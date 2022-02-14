@@ -31,9 +31,9 @@ int main()
     layer2.setTexture(&sky2);
 
     RectangleShape shape(Vector2f(75.0f, 75.0f));
-    shape.setPosition(70, 0);
+    shape.setPosition(70, 10);
     Texture mario;
-    mario.loadFromFile("mario4.PNG");
+    mario.loadFromFile("mario4.png");
     shape.setTexture(&mario);
     shape.setScale(0.7, 1);
     shape.setTextureRect(IntRect(0, 0, 16, 32));
@@ -146,10 +146,10 @@ int main()
         }
         if (!shape.getGlobalBounds().intersects(ground.getGlobalBounds())) {
             shape.move(Vector2f(0, 0.00001));
-        }
-        // if (!shape.getGlobalBounds().intersects(groundd.getGlobalBounds())) {
-        //     shape.move(Vector2f(0, 0.00001));
-        // }
+        
+        if (!shape.getGlobalBounds().intersects(groundd.getGlobalBounds())) {
+             shape.move(Vector2f(0, 0.00001));
+         }}
         else {
             canjump = true;
         }
@@ -165,7 +165,7 @@ int main()
 
         for (int i = 0; i < 100; i++)
         {
-            if (!shape.getGlobalBounds().intersects(ground.getGlobalBounds()))
+            if (!shape.getGlobalBounds().intersects(ground.getGlobalBounds())&& !shape.getGlobalBounds().intersects(groundd.getGlobalBounds()))
             {
                 shape.move(0, 0.001);
             }
